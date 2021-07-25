@@ -11,7 +11,15 @@ async function getDinoName(){
   const data = await response.json();
   let dinoName = data[0].join(' ');
   console.log(dinoName);
-  document.querySelector('#dinoName').textContent = dinoName;
+
+  if (document.querySelector('#dinoName') !== null) {
+    document.querySelector('#dinoName').remove();
+  }
+
+  let dinoNameDiv = document.createElement('div');
+  dinoNameDiv.id = 'dinoName';
+  dinoNameDiv.textContent = dinoName;
+  document.querySelector('.generator').appendChild(dinoNameDiv);
 }
 
 async function getDinoImage(){
@@ -31,5 +39,5 @@ async function getDinoImage(){
   img.id = 'dinoImage';
   img.src = dinoImageUrl;
   img.alt = dinoAlt;
-  document.querySelector('body').appendChild(img);
+  document.querySelector('.generator').appendChild(img);
 }
