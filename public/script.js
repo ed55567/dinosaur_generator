@@ -1,9 +1,19 @@
 console.log('script.js loaded');
 
  document.querySelector('#btnload').addEventListener('click', () => {
+
+  if (document.querySelector('#dinoName') !== null) {
+    document.querySelector('#dinoName').remove();
+  }
+  
+  if (document.querySelector('#dinoImage') !== null) {
+    document.querySelector('#dinoImage').remove();
+  }  
   getDinoName();
   getDinoImage();
  });
+
+ 
   
   
 async function getDinoName(){
@@ -12,9 +22,6 @@ async function getDinoName(){
   let dinoName = data[0].join(' ');
   console.log(dinoName);
 
-  if (document.querySelector('#dinoName') !== null) {
-    document.querySelector('#dinoName').remove();
-  }
 
   let dinoNameDiv = document.createElement('div');
   dinoNameDiv.id = 'dinoName';
@@ -30,14 +37,12 @@ async function getDinoImage(){
   let dinoAlt = dinoImage.name;
   console.log(dinoImage);
 
-  if (document.querySelector('#dinoImage') !== null) {
-    document.querySelector('#dinoImage').remove();
-  }
+  
 
 
   let img = document.createElement('img');
   img.id = 'dinoImage';
   img.src = dinoImageUrl;
   img.alt = dinoAlt;
-  document.querySelector('.generator').appendChild(img);
+  document.querySelector('#dinoWrapper').appendChild(img);
 }
