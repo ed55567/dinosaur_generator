@@ -13,8 +13,6 @@ console.log('script.js loaded');
   getDinoImage();
  });
 
- 
-  
   
 async function getDinoName(){
   const response = await fetch('/dinoname');
@@ -26,7 +24,7 @@ async function getDinoName(){
   let dinoNameDiv = document.createElement('div');
   dinoNameDiv.id = 'dinoName';
   dinoNameDiv.textContent = dinoName;
-  document.querySelector('.generator').appendChild(dinoNameDiv);
+  document.querySelector('#dinoWrapper').appendChild(dinoNameDiv);
 }
 
 async function getDinoImage(){

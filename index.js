@@ -32,7 +32,7 @@ app.get('/dinoname', async(request, response) =>{
 
 app.get('/dinoimage', async(request, response) =>{
   
-  const fetchApi = await fetch("https://bing-image-search1.p.rapidapi.com/images/search?q=dinosaur&count=40", {
+  const fetchApi = await fetch("https://bing-image-search1.p.rapidapi.com/images/search?q=dinosaur&count=30", {
     "method": "GET",
     "headers": {
       "x-rapidapi-key": api_key,
